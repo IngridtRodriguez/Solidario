@@ -7,7 +7,7 @@
              x:Class="Solidario.Views.Noticias">
   <ContentView.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
+          <Label Text="Hello Xamarin.Forms! Noticias" />
       </StackLayout>
   </ContentView.Content>
 </ContentView>

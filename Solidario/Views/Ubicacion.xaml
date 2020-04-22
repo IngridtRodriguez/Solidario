@@ -7,7 +7,7 @@
              x:Class="Solidario.Views.Ubicacion">
   <ContentView.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
+          <Label Text="Hello Xamarin.Forms! Ubicaciion" />
       </StackLayout>
   </ContentView.Content>
 </ContentView>

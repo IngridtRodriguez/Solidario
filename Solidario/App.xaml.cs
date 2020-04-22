@@ -10,6 +10,7 @@ namespace Solidario
     {
 
         public static Contenedor objContenedor;
+        public static string strVista;
 
         public App()
         {

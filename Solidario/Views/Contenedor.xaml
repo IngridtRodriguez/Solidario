@@ -56,6 +56,9 @@
                                x:Name="btnAtras">
                             <Image Source="iconoflecha" WidthRequest="25"
                                    HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="frmAtras_Tapped" />
+                            </Frame.GestureRecognizers>
 
                         </Frame>
 
@@ -72,7 +75,7 @@
                                HorizontalOptions="FillAndExpand" 
                                VerticalOptions="FillAndExpand"
                                BackgroundColor="Transparent"
-                               x:Name="Mapa">
+                               x:Name="frmmapa">
                             <Image Source="iconomapa" WidthRequest="25"
                                    HorizontalOptions="Center" VerticalOptions="Center"/>
                             <Frame.GestureRecognizers>
@@ -85,7 +88,7 @@
                                HorizontalOptions="FillAndExpand" 
                                VerticalOptions="FillAndExpand"
                                BackgroundColor="Transparent"
-                               x:Name="contactenos">
+                               x:Name="frmcontactenos">
                             <Image Source="iconomensaje" WidthRequest="25"
                                    HorizontalOptions="Center" VerticalOptions="Center"/>
 

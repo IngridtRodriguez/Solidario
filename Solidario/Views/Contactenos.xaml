@@ -6,8 +6,88 @@
              mc:Ignorable="d"
              x:Class="Solidario.Views.Contactenos">
   <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+      <!--comienzo del grid del contenedor-->
+        <Grid Padding="0"
+                  VerticalOptions="FillAndExpand" 
+                  HorizontalOptions="FillAndExpand"
+                  RowSpacing="0" ColumnSpacing="0"
+                  AbsoluteLayout.LayoutBounds="0,0,1,1" 
+                  AbsoluteLayout.LayoutFlags="All"
+                 >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <!--Asunto y texto-->
+            <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                       BackgroundColor="#b7b7b7"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand">
+                <Grid Padding="0"
+                  VerticalOptions="FillAndExpand" 
+                  HorizontalOptions="FillAndExpand"
+                  RowSpacing="0" ColumnSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame Grid.Row="0" Grid.Column="0"
+                           BackgroundColor="#FF9603"
+                           Padding="0"
+                           >
+                        <Label Text="ASUNTO" TextColor="White"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+
+                    </Frame>
+                    <Frame Grid.Row="0" Grid.Column="1"
+                           BackgroundColor="Transparent"
+                           Padding="0"
+                           Margin="0">
+                        <Entry Placeholder="texto" BackgroundColor="Transparent" TextColor="White"></Entry>
+                    </Frame>
+
+                </Grid>
+            </Frame>
+            <!--TextBox-->
+            <Frame Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                       BackgroundColor="#b2b2b2"
+                       VerticalOptions="FillAndExpand"
+                       HorizontalOptions="FillAndExpand">
+
+                <Grid Padding="0"
+                  VerticalOptions="FillAndExpand" 
+                  HorizontalOptions="FillAndExpand"
+                  RowSpacing="0" ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame Grid.Row="0" Grid.Column="0"
+                           BackgroundColor="Transparent">
+                        <Editor Text="Escriba aqui" />
+                        
+                    </Frame>
+                    
+                    
+                </Grid>
+            </Frame>
+                <!--boton-->
+           
+
+
+
+
+        </Grid>
+    </ContentView.Content>
 </ContentView>
