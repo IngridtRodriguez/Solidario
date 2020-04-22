@@ -9,12 +9,15 @@ namespace Solidario
     public partial class App : Application
     {
 
+        public static Contenedor objContenedor;
+
         public App()
         {
             InitializeComponent();
-
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            objContenedor = new Contenedor();
+            MainPage = objContenedor;
+            // MainPage = new AppShell();
         }
 
         protected override void OnStart()

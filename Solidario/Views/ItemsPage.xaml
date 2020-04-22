@@ -24,7 +24,7 @@
                Opacity="0.8"/>
         <StackLayout Padding="10" Grid.Row="0" Orientation="Horizontal" VerticalOptions="End" HeightRequest="55">
             <Frame WidthRequest="70"
-                   BackgroundColor="f8222c"
+                   BackgroundColor="#f8222c"
                    Padding="10"
                    CornerRadius="10"
                    HasShadow="True"
