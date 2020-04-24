@@ -10,13 +10,17 @@
         <Grid Padding="0"
                   VerticalOptions="FillAndExpand" 
                   HorizontalOptions="FillAndExpand"
+                  HeightRequest="100"
                   RowSpacing="0" ColumnSpacing="0"
                   AbsoluteLayout.LayoutBounds="0,0,1,1" 
                   AbsoluteLayout.LayoutFlags="All"
+                  BackgroundColor="#b7b7b7"
                  >
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="6*"/>
+                <RowDefinition Height="1*"/>
+                
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -26,7 +30,8 @@
             <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
                        BackgroundColor="#b7b7b7"
                        VerticalOptions="FillAndExpand"
-                       HorizontalOptions="FillAndExpand">
+                       HorizontalOptions="FillAndExpand"
+                   Padding="0">
                 <Grid Padding="0"
                   VerticalOptions="FillAndExpand" 
                   HorizontalOptions="FillAndExpand"
@@ -38,7 +43,7 @@
 
                     <Frame Grid.Row="0" Grid.Column="0"
                            BackgroundColor="#FF9603"
-                           Padding="0"
+                          Margin="5"
                            >
                         <Label Text="ASUNTO" TextColor="White"
                                VerticalOptions="Center"
@@ -75,15 +80,38 @@
 
                     <Frame Grid.Row="0" Grid.Column="0"
                            BackgroundColor="Transparent">
-                        <Editor Text="Escriba aqui" />
+                        <Editor Placeholder="*Escriba aqui*" />
                         
                     </Frame>
                     
                     
                 </Grid>
             </Frame>
-                <!--boton-->
-           
+                <!--boton temporal-->
+            <Frame  Grid.Row="2"
+                    Grid.Column="0" 
+                    Grid.ColumnSpan="2"
+                    x:Name="frmenviar"
+                    Padding="0" 
+                    Margin="30,0,30,0"
+                    CornerRadius="10" 
+                    HasShadow="false"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    BackgroundColor="#C2D44E"
+                  >
+
+                <Label Text="Enviar"  
+                       TextColor="White" 
+                       FontAttributes="Bold"
+                       FontSize="Subtitle"
+                       HorizontalTextAlignment="Center" 
+                       VerticalTextAlignment="Center"/>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Enviar_Clicked"></TapGestureRecognizer>
+                </Frame.GestureRecognizers>
+            </Frame>
+
 
 
 

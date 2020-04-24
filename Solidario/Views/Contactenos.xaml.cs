@@ -16,5 +16,10 @@ namespace Solidario.Views
         {
             InitializeComponent();
         }
+
+        private void Enviar_Clicked (object sender, EventArgs e)
+        {
+            App.Current.MainPage.DisplayAlert("Alert", "You have been alerted", "OK");
+        }
     }
 }

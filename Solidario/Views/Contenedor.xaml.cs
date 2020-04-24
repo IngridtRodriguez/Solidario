@@ -38,6 +38,7 @@ namespace Solidario.Views
                         this.frmBarraSuperior.IsVisible = true;
                         frmcontactenos.IsVisible = false;
                         frmmapa.IsVisible = true;
+                        scrlContenedor.InputTransparent = true;
                         break;
                     case "Ubicacion":
                         objContentView = new Ubicacion();
