@@ -1,13 +1,71 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<local:Contenedor xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Solidario.Views"
              mc:Ignorable="d"
+             Title="{Binding Title}"
              x:Class="Solidario.Views.Noticias">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms! Noticias" />
-      </StackLayout>
-  </ContentView.Content>
-</ContentView>
+
+    <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}"
+                 Command="{Binding comandoCargarNoticias}"
+                 Margin="15">
+        <CollectionView x:Name="NoticiasCollectionView"
+                        ItemsSource="{Binding noticias}">
+            <d:CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>First Item</x:String>
+                    <x:String>Second Item</x:String>
+                    <x:String>Third Item</x:String>
+                    <x:String>Fourth Item</x:String>
+                    <x:String>Fifth Item</x:String>
+                    <x:String>Sixth Item</x:String>
+                </x:Array>
+            </d:CollectionView.ItemsSource>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10"
+                          BackgroundColor="{StaticResource Gris}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="{Binding Hora}"
+                               BackgroundColor="Black"
+                               Grid.Column="0"
+                               Grid.Row="0"
+                               Grid.RowSpan="2"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="FillAndExpand"
+                               FontSize="Large"
+                               TextColor="White"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Center"/>
+
+                        <Label Text="{Binding Titulo}"
+                               d:Text="{Binding .}"
+                               LineBreakMode="NoWrap"
+                               Style="{StaticResource TituloNoticia}"
+                               Grid.Column="1"
+                               Grid.Row="0"/>
+                        <Label Text="{Binding Descripcion}" 
+                               d:Text="Item descripton"
+                               LineBreakMode="NoWrap"
+                               Style="{StaticResource CuerpoNoticia}"
+                               Grid.Column="1"
+                               Grid.Row="1"/>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</local:Contenedor>

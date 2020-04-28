@@ -4,9 +4,54 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true"
              x:Class="Solidario.Views.Contenedor">
 
-    <ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Mapa"
+                     IconImageSource="iconomapa"
+                     Priority="0"
+                     Clicked="IconoMapa_Clicked"/>
+        <ToolbarItem Text="Contacténos"
+                     IconImageSource="iconomensaje"
+                     Clicked="IconoContacto_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <Shell.TitleView>
+        <Grid HorizontalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              RowSpacing="0"
+              ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image Source="huellazapatos"
+                   HorizontalOptions="End"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   Grid.RowSpan="2"
+                   Margin="5"/>
+            <Label Text="PaSo"
+                   Grid.Column="1"
+                   Grid.Row="0"
+                   VerticalOptions="End"
+                   Style="{StaticResource LetraLogo}"/>
+            <Label Text="Informado"
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   VerticalOptions="Start"
+                   Style="{StaticResource LetraLogo}"/>
+
+        </Grid>
+    </Shell.TitleView>
+    
+    <!--<ContentPage.Content>
         <AbsoluteLayout Padding="0" 
                         HorizontalOptions="FillAndExpand" 
                         VerticalOptions="FillAndExpand">
@@ -17,7 +62,6 @@
                   AbsoluteLayout.LayoutBounds="0,0,1,1" 
                   AbsoluteLayout.LayoutFlags="All">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="60"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="20"/>
                 </Grid.RowDefinitions>
@@ -25,85 +69,9 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!--Comienzo de barra superior-->
+                --><!--Comienzo de la vista principal--><!--
 
-                <Frame Grid.Row="0" Grid.Column="0"
-                       CornerRadius="0" HasShadow="false" Padding="0"
-                       HorizontalOptions="FillAndExpand"
-                       VerticalOptions="FillAndExpand"
-                       BackgroundColor="#FF9603"
-                       x:Name="frmBarraSuperior">
-                    <Grid Grid.Row="0" Grid.Column="0"
-                          RowSpacing="0" ColumnSpacing="0" Padding="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="50"/>
-                            <ColumnDefinition Width="50"/>
-                        </Grid.ColumnDefinitions>
-
-
-                        <!--Boton atras-->
-                        <Frame Grid.Row="0" Grid.Column="0"
-                               CornerRadius="0" HasShadow="false" Padding="0"
-                               HorizontalOptions="FillAndExpand" 
-                               VerticalOptions="FillAndExpand"
-                               BackgroundColor="Transparent"
-                               IsVisible="False"
-                               x:Name="btnAtras">
-                            <Image Source="iconoflecha" WidthRequest="25"
-                                   HorizontalOptions="Center" VerticalOptions="Center"/>
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="frmAtras_Tapped" />
-                            </Frame.GestureRecognizers>
-
-                        </Frame>
-
-                        <!--Imagen logo de paso informado-->
-                        <Image Grid.Row="0" Grid.Column="1"
-                               VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"
-                               Source="logoPaSoInformado"
-                               x:Name="logo"
-                               IsVisible="true"/>
-                        <!--Boton de mapa-->
-
-                        <Frame Grid.Row="0" Grid.Column="2"
-                               CornerRadius="0" HasShadow="false" Padding="0"
-                               HorizontalOptions="FillAndExpand" 
-                               VerticalOptions="FillAndExpand"
-                               BackgroundColor="Transparent"
-                               x:Name="frmmapa">
-                            <Image Source="iconomapa" WidthRequest="25"
-                                   HorizontalOptions="Center" VerticalOptions="Center"/>
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="btnUbicaciones_Tapped" />
-                            </Frame.GestureRecognizers>
-                        </Frame>
-                        <!--Boton de contacto-->
-                        <Frame Grid.Row="0" Grid.Column="3"
-                               CornerRadius="0" HasShadow="false" Padding="0"
-                               HorizontalOptions="FillAndExpand" 
-                               VerticalOptions="FillAndExpand"
-                               BackgroundColor="Transparent"
-                               x:Name="frmcontactenos">
-                            <Image Source="iconomensaje" WidthRequest="25"
-                                   HorizontalOptions="Center" VerticalOptions="Center"/>
-
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="btnContactenos_Tapped" />
-                            </Frame.GestureRecognizers>
-
-                        </Frame>
-
-                    </Grid>
-                </Frame>
-
-                <!--Comienzo de la vista principal-->
-
-                <ScrollView Grid.Row="1" Grid.Column="0"
+                <ScrollView Grid.Row="0" Grid.Column="0"
                             BackgroundColor="Transparent"
                             x:Name="scrlContenedor">
                     <Grid RowSpacing="0" ColumnSpacing="0" Padding="0"
@@ -114,42 +82,31 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <!--Contenedor de las vistas-->
+                        --><!--Contenedor de las vistas--><!--
 
                     </Grid>
                 </ScrollView>
 
-                <!--Comienzo de la barra inferior-->
-                <Frame Grid.Row="2"
+                --><!--Comienzo de la barra inferior--><!--
+                <Frame Grid.Row="1"
                        Grid.Column="0"
-                       Padding="0" BackgroundColor="#FF9603"
+                       Padding="0" BackgroundColor="{StaticResource ColorSecundario}"
                        x:Name="frmBarraInferior">
                     <Grid Grid.Row="0"
                           Grid.Column="0"
                           RowSpacing="0" 
                           ColumnSpacing="0" 
                           Padding="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
 
-                        <Label Grid.Row="0" Grid.Column="1"
-                               Text="LogicStudio.net"
+                        <Label Text="LogicStudio.net"
                                VerticalOptions="CenterAndExpand"
                                HorizontalOptions="CenterAndExpand"
-                               IsVisible="True"
-                               />
-
-
+                               IsVisible="True"/>
                     </Grid>
                 </Frame>
+                
             </Grid>
 
         </AbsoluteLayout>
-    </ContentPage.Content>
+    </ContentPage.Content>-->
 </ContentPage>

@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace Solidario.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Contactenos : ContentView
+    public partial class Contactenos : Contenedor
     {
         public Contactenos()
         {

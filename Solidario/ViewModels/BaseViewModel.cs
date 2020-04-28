@@ -12,7 +12,7 @@ namespace Solidario.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IDataStore<Noticia> DataStore => DependencyService.Get<IDataStore<Noticia>>();
 
         bool isBusy = false;
         public bool IsBusy

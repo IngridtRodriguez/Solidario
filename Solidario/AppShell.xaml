@@ -4,39 +4,59 @@
        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
-       xmlns:local="clr-namespace:Solidario.Views"
+       xmlns:views="clr-namespace:Solidario.Views"
        Title="Solidario"
        x:Class="Solidario.AppShell">
 
     <!-- Estilos y recursos -->
     <Shell.Resources>
         <ResourceDictionary>
-            <Color x:Key="ColorPrimario">#1B3864</Color>
-            <Color x:Key="ColorPestanas">#0E2B52</Color>
-            <Color x:Key="Negro">#252525</Color>
+            <Color x:Key="ColorPrimario">#FF9603</Color>
+            <Color x:Key="ColorSecundario">#036CFF</Color>
+            <Color x:Key="ColorTerciario">#83B6FF</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="White" />
+                <!--background color in the Shell chrome-->
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource ColorPrimario}" />
+                <!--color to shade text and icons.-->
                 <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="Black" />
+                <!--color used for the title of the current page-->
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <!--color to shade text and icons that are disabled.-->
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource ColorPestanas}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#00A4DE"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
 
-    <!-- Páginas -->
+    <!--Estilos de la versión 1-->
+    <!--<Color x:Key="ColorPrimario">#1B3864</Color>
+    <Color x:Key="ColorPestanas">#0E2B52</Color>
+    <Color x:Key="Negro">#252525</Color>
+    <Style x:Key="BaseStyle" TargetType="Element">
+        <Setter Property="Shell.BackgroundColor" Value="White" />
+        <Setter Property="Shell.ForegroundColor" Value="White" />
+        <Setter Property="Shell.TitleColor" Value="Black" />
+        <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+        <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+        <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource ColorPestanas}" />
+        <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+        <Setter Property="Shell.TabBarUnselectedColor" Value="#00A4DE"/>
+        <Setter Property="Shell.TabBarTitleColor" Value="White"/>-->
+
+        <!-- Páginas -->
     <TabBar>
-        <Tab Title="Noticias" Icon="tab_noticias.png">
+        <Tab Title="Contenedor">
+            <ShellContent>
+                <views:Noticias/>
+            </ShellContent>
+        </Tab>
+        <!--<Tab Title="Noticias" Icon="tab_noticias.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
-        </Tab>
-        <Tab Title="Mapa" Icon="tab_mapa.png">
+        </Tab>-->
+        <!--<Tab Title="Mapa" Icon="tab_mapa.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
-        </Tab>
+        </Tab>-->
     </TabBar>
 
 </Shell>

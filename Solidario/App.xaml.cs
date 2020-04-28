@@ -16,9 +16,9 @@ namespace Solidario
         {
             InitializeComponent();
             DependencyService.Register<MockDataStore>();
-            objContenedor = new Contenedor();
-            MainPage = objContenedor;
-            // MainPage = new AppShell();
+            //objContenedor = new Contenedor();
+            //MainPage = objContenedor;
+            MainPage = new AppShell();
         }
 
         protected override void OnStart()

@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace Solidario.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Ubicacion : ContentView
+    public partial class Ubicacion : Contenedor
     {
         public Ubicacion()
         {

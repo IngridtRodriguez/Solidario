@@ -6,33 +6,33 @@ using Solidario.Models;
 
 namespace Solidario.Services
 {
-    public class MockDataStore : IDataStore<Item>
+    public class MockDataStore : IDataStore<Noticia>
     {
-        readonly List<Item> items;
+        readonly List<Noticia> items;
 
         public MockDataStore()
         {
-            items = new List<Item>()
+            items = new List<Noticia>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+                new Noticia { Id = Guid.NewGuid().ToString(), Titulo = "First item", Descripcion="This is an item description.", Hora=10},
+                new Noticia { Id = Guid.NewGuid().ToString(), Titulo = "Second item",Descripcion="This is an item description.", Hora=9},
+                new Noticia { Id = Guid.NewGuid().ToString(), Titulo = "Third item", Descripcion="This is an item description.", Hora=8 },
+                new Noticia { Id = Guid.NewGuid().ToString(), Titulo = "Fourth item",Descripcion="This is an item description.", Hora=7 },
+                new Noticia { Id = Guid.NewGuid().ToString(), Titulo = "Fifth item", Descripcion="This is an item description.", Hora=6 },
+                new Noticia { Id = Guid.NewGuid().ToString(), Titulo = "Sixth item", Descripcion="This is an item description.", Hora=5 }
             };
         }
 
-        public async Task<bool> AddItemAsync(Item item)
+        public async Task<bool> AddItemAsync(Noticia item)
         {
             items.Add(item);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> UpdateItemAsync(Item item)
+        public async Task<bool> UpdateItemAsync(Noticia item)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
+            var oldItem = items.Where((Noticia arg) => arg.Id == item.Id).FirstOrDefault();
             items.Remove(oldItem);
             items.Add(item);
 
@@ -41,18 +41,18 @@ namespace Solidario.Services
 
         public async Task<bool> DeleteItemAsync(string id)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
+            var oldItem = items.Where((Noticia arg) => arg.Id == id).FirstOrDefault();
             items.Remove(oldItem);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<Item> GetItemAsync(string id)
+        public async Task<Noticia> GetItemAsync(string id)
         {
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }
 
-        public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Noticia>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
         }

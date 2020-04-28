@@ -15,68 +15,16 @@ namespace Solidario.Views
         public Contenedor()
         {
             InitializeComponent();
-            MostrarVista("Inicial");
-        }
-        public void MostrarVista(string strVistaNueva)
-        {
-            try
-            {
-                ContentView objContentView;
-                scrlContenedor.InputTransparent = false;
-                switch (strVistaNueva)
-                {
-                    case "Inicial":
-                        objContentView = new Noticias();
-                        this.frmBarraSuperior.IsVisible = true;
-                        btnAtras.IsVisible = false;
-                        frmcontactenos.IsVisible = true;
-                        frmmapa.IsVisible = true;
-                        break;
-                    case "Contactenos":
-                        objContentView = new Contactenos();
-                        btnAtras.IsVisible = true;
-                        this.frmBarraSuperior.IsVisible = true;
-                        frmcontactenos.IsVisible = false;
-                        frmmapa.IsVisible = true;
-                        scrlContenedor.InputTransparent = true;
-                        break;
-                    case "Ubicacion":
-                        objContentView = new Ubicacion();
-                        this.frmBarraSuperior.IsVisible = true;
-                        scrlContenedor.InputTransparent = true;
-                        btnAtras.IsVisible = true;
-                        frmcontactenos.IsVisible = true;
-                        frmmapa.IsVisible = false;
-                        break;
-                    default:
-                        throw new Exception("No existe vista: " + strVistaNueva);
-
-                }
-                //creacion del contenedor
-                this.grdContenedor.Children.Clear();
-                this.grdContenedor.Children.Add(objContentView);
-                App.strVista = strVistaNueva;
-            }
-            catch (Exception ex)
-            
-            {
-                DisplayAlert("PasoInformado", "MostrarVista: " + ex.Message, "OK");
-            }
         }
 
-        private  void frmAtras_Tapped(object sender, EventArgs e)
+        private void IconoMapa_Clicked(object sender, EventArgs e)
         {
-            App.objContenedor.MostrarVista("Inicial");
+            DisplayAlert("","Icono Mapa Clicked","Ok");
         }
 
-        private void btnUbicaciones_Tapped(object sender, EventArgs e)
+        async void IconoContacto_Clicked(object sender, EventArgs e)
         {
-            App.objContenedor.MostrarVista("Ubicacion");
-
-        }
-        private void btnContactenos_Tapped(object sender, EventArgs e)
-        {
-            App.objContenedor.MostrarVista("Contactenos");
+            await Navigation.PushModalAsync(new NavigationPage(new Contactenos()));
         }
 
     }
