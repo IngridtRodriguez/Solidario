@@ -24,6 +24,8 @@ namespace Solidario.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            Plugin.MaterialDesignControls.iOS.Renderer.Init();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

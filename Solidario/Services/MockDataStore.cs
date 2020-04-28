@@ -14,7 +14,7 @@ namespace Solidario.Services
         {
             items = new List<Noticia>()
             {
-                new Noticia { Id = Guid.NewGuid().ToString(), Titulo = "First item", Descripcion="This is an item description.", Hora=10},
+                new Noticia { Id = Guid.NewGuid().ToString(), Titulo = "First item", Descripcion="This is an item description of two lines. This is an item of two lines. This is an item of two lines", Hora=10},
                 new Noticia { Id = Guid.NewGuid().ToString(), Titulo = "Second item",Descripcion="This is an item description.", Hora=9},
                 new Noticia { Id = Guid.NewGuid().ToString(), Titulo = "Third item", Descripcion="This is an item description.", Hora=8 },
                 new Noticia { Id = Guid.NewGuid().ToString(), Titulo = "Fourth item",Descripcion="This is an item description.", Hora=7 },

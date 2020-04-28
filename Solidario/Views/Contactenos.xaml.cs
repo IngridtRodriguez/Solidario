@@ -10,16 +10,17 @@ using Xamarin.Forms.Xaml;
 namespace Solidario.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Contactenos : Contenedor
+    public partial class Contactenos : ContentPage
     {
         public Contactenos()
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, true);
         }
 
-        private void Enviar_Clicked (object sender, EventArgs e)
+        async void Enviar_Clicked(object sender, EventArgs e)
         {
-            App.Current.MainPage.DisplayAlert("Alert", "You have been alerted", "OK");
+            
         }
     }
 }

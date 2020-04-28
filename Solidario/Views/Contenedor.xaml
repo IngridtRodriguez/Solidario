@@ -50,7 +50,8 @@
 
         </Grid>
     </Shell.TitleView>
-    
+
+
     <!--<ContentPage.Content>
         <AbsoluteLayout Padding="0" 
                         HorizontalOptions="FillAndExpand" 

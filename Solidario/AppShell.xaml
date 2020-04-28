@@ -6,6 +6,7 @@
        mc:Ignorable="d"
        xmlns:views="clr-namespace:Solidario.Views"
        Title="Solidario"
+       FlyoutBehavior="Disabled"
        x:Class="Solidario.AppShell">
 
     <!-- Estilos y recursos -->
@@ -22,8 +23,8 @@
                 <!--color used for the title of the current page-->
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <!--color to shade text and icons that are disabled.-->
-                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
-                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.DisabledColor" Value="{StaticResource ColorPrimario}" />
+                <Setter Property="Shell.UnselectedColor" Value="{StaticResource ColorPrimario}" />
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
@@ -47,7 +48,7 @@
         <!-- Páginas -->
     <TabBar>
         <Tab Title="Contenedor">
-            <ShellContent>
+            <ShellContent Route="noticias">
                 <views:Noticias/>
             </ShellContent>
         </Tab>

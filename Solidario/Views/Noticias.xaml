@@ -25,45 +25,93 @@
             </d:CollectionView.ItemsSource>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10"
-                          BackgroundColor="{StaticResource Gris}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="60"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+                    <Frame HasShadow="False"
+                           Padding="5"
+                           BackgroundColor="Transparent">
+                        <Grid RowSpacing="0"
+                              BackgroundColor="{StaticResource Gris}"
+                              HeightRequest="120"
+                              Opacity="0.8">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                        <Label Text="{Binding Hora}"
-                               BackgroundColor="Black"
-                               Grid.Column="0"
-                               Grid.Row="0"
-                               Grid.RowSpan="2"
-                               HorizontalOptions="FillAndExpand"
-                               VerticalOptions="FillAndExpand"
-                               FontSize="Large"
-                               TextColor="White"
-                               VerticalTextAlignment="Center"
-                               HorizontalTextAlignment="Center"/>
+                            <Grid BackgroundColor="{StaticResource GrisPuro}"
+                                  Grid.Column="0"
+                                  Grid.Row="0"
+                                  Grid.ColumnSpan="2"
+                                  RowSpacing="0"
+                                  Opacity="0.8">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="0"
+                                       Grid.RowSpan="2"
+                                       Grid.Column="0"
+                                       TextColor="White"
+                                       Text="21"
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="EndAndExpand"
+                                       FontSize="Title"/>
+                                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       TextColor="White"
+                                       Text="Martes"
+                                       VerticalOptions="EndAndExpand"
+                                       HorizontalOptions="StartAndExpand"
+                                       FontSize="Small"/>
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       TextColor="White"
+                                       Text="Abril"
+                                       VerticalOptions="StartAndExpand"
+                                       HorizontalOptions="StartAndExpand"
+                                       FontSize="Small"/>
+                            </Grid>
 
-                        <Label Text="{Binding Titulo}"
-                               d:Text="{Binding .}"
-                               LineBreakMode="NoWrap"
-                               Style="{StaticResource TituloNoticia}"
-                               Grid.Column="1"
-                               Grid.Row="0"/>
-                        <Label Text="{Binding Descripcion}" 
-                               d:Text="Item descripton"
-                               LineBreakMode="NoWrap"
-                               Style="{StaticResource CuerpoNoticia}"
-                               Grid.Column="1"
-                               Grid.Row="1"/>
-                        <Grid.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
-                        </Grid.GestureRecognizers>
-                    </Grid>
+                            <Label Text="{Binding Hora}"
+                                   BackgroundColor="Black"
+                                   Grid.Column="0"
+                                   Grid.Row="1"
+                                   Grid.RowSpan="2"
+                                   FontSize="Large"
+                                   TextColor="White"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"
+                                   Margin="5,5,0,5"/>
+
+
+                            <Label Text="{Binding Titulo}"
+                                   d:Text="{Binding .}"
+                                   LineBreakMode="NoWrap"
+                                   Style="{StaticResource TituloNoticia}"
+                                   VerticalOptions="CenterAndExpand"
+                                   Grid.Column="1"
+                                   Grid.Row="1"/>
+                            <Label Text="{Binding Descripcion}" 
+                                   d:Text="Item descripton"
+                                   LineBreakMode="NoWrap"
+                                   Style="{StaticResource CuerpoNoticia}"
+                                   VerticalOptions="Start"
+                                   Grid.Column="1"
+                                   Grid.Row="2"
+                                   MaxLines="2"/>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
